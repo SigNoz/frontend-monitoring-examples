@@ -1,4 +1,4 @@
-import './instrumentation';
+import './otel/instrumentation';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';

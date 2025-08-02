@@ -9,7 +9,7 @@ import { DocumentLoadInstrumentation } from '@opentelemetry/instrumentation-docu
 import CustomSpanProcessor from './custom_span_processor';
 
 const exporter = new OTLPTraceExporter({
-  url: 'http://localhost:4318/v1/traces',
+  url: `${import.meta.env.VITE_OTEL_EXPORTER_OTLP_ENDPOINT}/v1/traces`,
 });
 
 const provider = new WebTracerProvider({

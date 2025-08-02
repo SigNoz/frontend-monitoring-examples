@@ -1,6 +1,7 @@
 # Sending Logs
 
 A React application that demonstrates sending logs to SigNoz.
+Please follow the guide [here](https://signoz.io/docs/frontend-monitoring/sending-logs/) for full instructions.
 
 ## What it does
 
