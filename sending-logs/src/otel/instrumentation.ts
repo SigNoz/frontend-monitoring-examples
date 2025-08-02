@@ -14,7 +14,9 @@ const loggerProvider = new LoggerProvider({
   processors: [
     new CustomAttributesProcessor(),
     new SimpleLogRecordProcessor(
-      new OTLPLogExporter({ url: 'http://localhost:4318/v1/logs' })
+      new OTLPLogExporter({
+        url: `${import.meta.env.VITE_OTEL_EXPORTER_OTLP_ENDPOINT}/v1/logs`,
+      })
     ),
   ],
 });

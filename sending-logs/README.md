@@ -4,8 +4,12 @@ A React application that demonstrates sending logs to SigNoz.
 
 ## What it does
 
-- React frontend
-- Sends logs to SigNoz for monitoring and visualization
+- React frontend with OpenTelemetry logging
+- Sends application logs to SigNoz for monitoring and visualization
+
+## Framework Adaptation
+
+The OpenTelemetry instrumentation in the `otel` folder is framework-agnostic. To use with other frameworks, simply import the `instrument.ts` file in your application's entry point.
 
 ## How to run
 

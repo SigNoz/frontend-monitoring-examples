@@ -1,5 +1,5 @@
 import './App.css';
-import { logInfo, logWarn, logError } from './utils';
+import { logInfo, logWarn, logError } from './otel/utils';
 
 function App() {
   const handleInfoLog = () => {

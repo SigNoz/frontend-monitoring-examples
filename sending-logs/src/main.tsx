@@ -1,4 +1,4 @@
-import './instrumentation.ts';
+import './otel/instrumentation';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
