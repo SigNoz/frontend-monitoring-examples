@@ -1,4 +1,4 @@
-import { SpanProcessor } from '@opentelemetry/sdk-trace-node';
+import { SpanProcessor } from '@opentelemetry/sdk-trace-web';
 import { UAParser } from 'ua-parser-js';
 
 export const CONSTANTS = {
@@ -29,13 +29,6 @@ function getUserId() {
     userId: userId || '',
   };
 }
-
-export const getLocationInfo = () => {
-  return {
-    city: 'New York',
-    country: 'USA',
-  };
-};
 
 const CustomSpanProcessor: SpanProcessor = {
   onStart: span => {
