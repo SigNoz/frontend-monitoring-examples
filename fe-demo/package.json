@@ -13,15 +13,18 @@
     "build:backend": "cd backend && npm run build",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:frontend": "cd frontend && npm run preview",
-    "start:backend": "cd backend && npm run start",
+    "start:backend": "cd backend && npm run preview",
     "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
     "clean": "rm -rf frontend/dist backend/dist",
     "lint": "npm run lint:frontend && npm run lint:backend",
     "lint:frontend": "cd frontend && npm run lint",
-    "lint:backend": "cd backend && npm run lint"
+    "lint:backend": "cd backend && npm run lint",
+    "simulate": "node simulate.js",
+    "simulate:install": "npm install playwright && npx playwright install chromium"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "playwright": "^1.55.0"
   },
   "keywords": [
     "expense",

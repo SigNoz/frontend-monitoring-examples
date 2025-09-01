@@ -1,0 +1,38 @@
+name: Run Expense Manager Simulation
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        working-directory: ./fe-demo
+        run: npm install
+
+      - name: Install Playwright browsers
+        working-directory: ./fe-demo
+        run: npm run simulate:install
+
+      - name: Run simulation
+        working-directory: ./fe-demo
+        run: npm run simulate
+        env:
+          FRONTEND_URL: https://signoz-fe-monitoring.vercel.app
+          ITERATIONS: 5
+          HEADLESS: true
