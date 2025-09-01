@@ -16,7 +16,7 @@ const metricReader = new PeriodicExportingMetricReader({
   exporter: new OTLPMetricExporter({
     url: `https://ingest.${
       import.meta.env.VITE_INGESTION_REGION
-    }.signoz.cloud:443/v1/metrics`,
+    }.staging.signoz.cloud:443/v1/metrics`,
     headers: {
       'signoz-ingestion-key': import.meta.env.VITE_INGESTION_KEY,
     },

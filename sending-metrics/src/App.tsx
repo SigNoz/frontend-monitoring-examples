@@ -6,6 +6,7 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import './App.css';
+import { useMetrics } from './otel/useMetrics';
 
 // Home page component
 const Home = () => {
@@ -76,17 +77,25 @@ const Groups = () => {
   );
 };
 
+// Wrapper component to use metrics hook
+const AppWithMetrics = () => {
+  useMetrics();
+  return (
+    <div className='app'>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/users' element={<Users />} />
+        <Route path='/settings' element={<Settings />} />
+        <Route path='/groups' element={<Groups />} />
+      </Routes>
+    </div>
+  );
+};
+
 const App = () => {
   return (
     <Router>
-      <div className='app'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/settings' element={<Settings />} />
-          <Route path='/groups' element={<Groups />} />
-        </Routes>
-      </div>
+      <AppWithMetrics />
     </Router>
   );
 };
