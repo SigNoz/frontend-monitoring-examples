@@ -3,10 +3,9 @@ import { UAParser } from 'ua-parser-js';
 
 export const CONSTANTS = {
   USER_ID: 'user.id',
-  BROWSER_NAME: 'browser.name',
-  BROWSER_VERSION: 'browser.version',
-  LOCATION_CITY: 'location.city',
-  LOCATION_COUNTRY: 'location.country',
+  USER_AGENT_ORIGINAL: 'user_agent.original',
+  USER_AGENT_VERSION: 'user_agent.version',
+  USER_AGENT_NAME: 'user_agent.name',
 };
 
 function getBrowserInfo() {
@@ -15,9 +14,9 @@ function getBrowserInfo() {
   const parser = new UAParser();
   const result = parser.getResult();
   return {
-    browserName: result.browser.name || '',
-    browserVersion: result.browser.version || '',
-    userAgent: result.ua || '',
+    userAgentOriginal: result.ua || '',
+    userAgentVersion: result.browser.version || '',
+    userAgentName: result.browser.name || '',
   };
 }
 
@@ -36,8 +35,15 @@ const CustomSpanProcessor: SpanProcessor = {
     const browserInfo = getBrowserInfo();
 
     span.setAttribute(CONSTANTS.USER_ID, userData.userId);
-    span.setAttribute(CONSTANTS.BROWSER_NAME, browserInfo.browserName);
-    span.setAttribute(CONSTANTS.BROWSER_VERSION, browserInfo.browserVersion);
+    span.setAttribute(
+      CONSTANTS.USER_AGENT_ORIGINAL,
+      browserInfo.userAgentOriginal
+    );
+    span.setAttribute(
+      CONSTANTS.USER_AGENT_VERSION,
+      browserInfo.userAgentVersion
+    );
+    span.setAttribute(CONSTANTS.USER_AGENT_NAME, browserInfo.userAgentName);
   },
   onEnd: () => Promise.resolve(),
   forceFlush: () => Promise.resolve(),
