@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "playwright": "^1.55.0"
+    "playwright": "^1.55.1"
   },
   "keywords": [
     "expense",
