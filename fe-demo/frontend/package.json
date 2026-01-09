@@ -32,7 +32,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
     "react-hot-toast": "^2.6.0",
-    "react-router-dom": "^6.20.1",
+    "react-router-dom": "^6.30.3",
     "tailwind-merge": "^2.0.0",
     "ua-parser-js": "^2.0.4",
     "web-vitals": "^5.1.0",
